@@ -25,23 +25,10 @@ def  listenerThread(pid, vectorClock, UDPsocket):
         senderId = msg['pid']
         senderClock = msg['clock']
         vectorClock.update(senderClock)
-        
-        #print(f"Process {pid} received a message from process {senderId}")
-        #print(f"Vector clock before: {vectorClock}")
-        #vectorClock.update(senderClock)
-        #print(f"Vector clock after: {vectorClock}")
 
         print(f"Process {pid} received a message from process {senderId}")
         print(f"Vector clock before: {senderClock}")
         print(f"Vecotr clock after: {vectorClock}")
-
-        #senderId = msg['pid']
-        #senderClock = msg['clock']
-        #vectorClock.update(senderClock.copy())
-
-        #print(f"Process {pid} received a message from process {senderId}")
-        #print(f"Vector clock before: {senderClock}")
-        #print(f"Vector clock after: {vectorClock}")
 
 def senderThread(pid, vectorClock, UDPsocket, processList):
     while True:
